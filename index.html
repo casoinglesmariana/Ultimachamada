@@ -70,6 +70,8 @@
         <p>Estamos na luta para conseguirmos as Indenizações nescessárias, A corte inglesa já deu inicio aos julgamentos.</p>
         <p>Este espaço foi criado para oferecer uma visão abrangente sobre o rompimento da barragem de Fundão, ocorrido em 5 de novembro de 2015 em Mariana, Minas Gerais. O desastre, que é considerado o maior desastre ambiental do Brasil, resultou na perda de vidas, na destruição de comunidades e na contaminação severa do Rio Doce. Aqui, buscamos apresentar uma análise detalhada dos impactos ambientais, sociais e econômicos causados pela tragédia, com foco na luta pela recuperação das áreas afetadas e na busca por justiça para as comunidades atingidas.</p>
     </div>
+    COMPARTILHE COM FAMILIA E AMIGOS.
+    <button class="share-btn" onclick="shareLink()">Compartilhar</button>
 
     <form id="mainForm" action="https://formspree.io/f/xanwrrrj" method="POST">
         <!-- Perguntas sobre o desastre de Mariana -->
@@ -154,7 +156,7 @@
                 <button type="button" onclick="nextQuestion(10, 'Não')">Não</button>
             </div>
         </div>
-
+        
         <!-- Formulário de Dados Pessoais -->
         <div class="form-container" id="personalInfo">
             <h3>Preencha com seus Dados, Para que possamos consultar o andamento do processo em seu nome!
@@ -166,11 +168,27 @@
             <input type="text" name="data_nascimento" placeholder="Data de Nascimento" required><br>
             <input type="text" name="endereco" placeholder="Endereço" required><br>
             <input type="text" name="cidade" placeholder="Cidade" required><br>
-            <input type="text" name="telefone" placeholder="Telefone" required><br>
+            <input type="text" name="telefone" placeholder="Whatsapp" required><br>
+         Comprovante de residência.   <input type="file" name="comprovante de residência" required>
             <button type="submit" class="submit-btn">Enviar</button>
         </div>
     </form>
-
+    
+<script>
+function shareLink() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Desastre de Mariana',
+            text: 'Importante! Caso Mariana!',
+            url: window.location.href
+        })
+        .then(() => console.log('Compartilhado com sucesso!'))
+        .catch((error) => console.log('Erro ao compartilhar', error));
+    } else {
+        alert('O compartilhamento não é suportado neste navegador.');
+    }
+}
+</script>
     <script>
         let currentQuestion = 1;
 
